@@ -1,3 +1,9 @@
+june 2001
+version 1.21
+modified statting script and SV.java class that a log file will only be written when it is defined in the starting script (see SV)
+
+gm02
+---------------------------------------------------
 dec 2000
 
 processInterrestData () is not yet implemented (just the reading of the file and the choiceButton in the
