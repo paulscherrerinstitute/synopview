@@ -1,0 +1,9 @@
+export CDEVDDL=${SLSBASE}/sls/config/ddl/SLS.cdl
+
+if [ $# -eq 0 ]
+then
+name=localhost
+else
+name=$1
+fi
+java -DSV_DIR=${SLSBASE}/sls/java/lib/sv/ -classpath $CLASSPATH:${SLSBASE}/sls/java/lib/cdev.jar:${SLSBASE}/sls/java/lib/sv/sv.jar SV $name 9573

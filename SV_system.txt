@@ -1,0 +1,14 @@
+# this is the new SV_system.txt file
+# 
+# system index from 0...255 (currently 0 is not used)
+#
+# MAchine DIagnostic RF VAcuum ALigment SAfety
+#
+# system_index		machine
+0					DRIFTS
+1					MA
+2					DI
+3					RF
+4					VA
+5					AL
+6					SA

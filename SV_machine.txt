@@ -1,0 +1,12 @@
+# this is the new SV_machine.txt file
+# 
+# machine from 0...255 (currently 0 is not used)
+#
+# machine	machine_name
+1			LI
+2			LB
+3			BO
+4			BR
+5			RI
+6			CO
+#7			GA		Gallery (currently not used)
