@@ -13,6 +13,6 @@ if [ "$d" = "slspn.psi.ch" ]
 then
 	SV_LOG=/home/slsop/common/sv/SV_${HOSTNAME}.log
 else
-	SV_LOG=$HOME/SV_${HOSTNAME}.log
+	SV_LOG=/tmp/SV_${HOSTNAME}.log
 fi
 java -DSV_LOG=${SV_LOG} -DSV_DIR=${SLSBASE}/sls/config/sv/ -classpath $CLASSPATH:${SLSBASE}/sls/java/lib/cdev.jar:${SLSBASE}/sls/java/lib/sv/sv.jar SV $name 9573
