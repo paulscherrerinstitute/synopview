@@ -9,7 +9,7 @@ Right now it is not fully functional as it depends on cdev which is not supporte
 To run SynopView use:
 
 ```bash
-java -jar synopview.jar  1234
+java -jar synopview.jar SV 1234
 ```							 
 
 # Known Problems
@@ -25,8 +25,10 @@ java -jar synopview.jar  1234
 
 
 # Development
-Create synoptic viewer archive:
+To build SynopView and to create an all in one Jar use:
 
 ```bash
-jar cvf sv.jar *.class svp/devices/*.class svp/parser/*.class svp/visual/*.class svp/visual/tree/*.class sls.jpg
+./gradlew fatJar
 ```
+
+Afterwards the build library is available in `build/libs`.
