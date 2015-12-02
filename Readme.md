@@ -1,5 +1,5 @@
 # Overview
-synop_view is a synoptic viewer of the SLS machine that is configured by text files that are generated out of the 'holy list'.
+synopview is a synoptic viewer of the SLS machine that is configured by text files that are generated out of the 'holy list'.
 
 Right now it is not fully functional as it depends on cdev which is not supported and working any more.
 
