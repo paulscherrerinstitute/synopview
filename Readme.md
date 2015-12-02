@@ -6,25 +6,11 @@ Right now it is not fully functional as it depends on cdev which is not supporte
 
 # Usage
 
-Run Synoptic Viewer (as java application):
+To run SynopView use:
 
 ```bash
-java [-DSV_DIR=path/] SV gatewayServerPC
-```
-[]                 options to specify where the resource files SV_*.txt are located
-                   ex: -D=/devl/sls/lib/sv/
-
-gatewayServerPC:   PC where the Cdev GatewayServer is running
-                   ex: PC2294
-
-
-```bash
-java -classpath $CLASSPATH:/devl/lib/cdev.jar:/devl/sls/lib/sv/sv.jar SV pc2294
-```
-
-```bash									 
-java -DSV_DIR=/devl/sls/lib/sv/ -classpath $CLASSPATH:/devl/lib/cdev.jar:/devl/sls/lib/sv/sv.jar SV pc2294
-```									 
+java -jar synopview.jar  1234
+```							 
 
 # Known Problems
 * When reducing the frame size, there are problems when the frame is small...

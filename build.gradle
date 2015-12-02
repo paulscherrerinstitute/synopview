@@ -7,9 +7,9 @@ version = '1.0.0'
 // Create a single Jar with all dependencies
 task fatJar(type: Jar) {
 	manifest {
-        attributes 'Implementation-Title': 'CaView',
+        attributes 'Implementation-Title': 'SynopView',
         	'Implementation-Version': version,
-        	'Main-Class': 'ch.psi.caview.CaView'
+        	'Main-Class': 'ch.psi.synopview.SV'
     }
     baseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
