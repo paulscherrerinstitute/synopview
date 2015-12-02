@@ -1,0 +1,11 @@
+#!/bin/bash
+f=$(ps axc|grep cdevGateway)
+if [ "$f" = "" ]
+then
+	echo "Starting cdevGateway on localhost"
+	export CDEV_NAME_SERVER=`uname -n` 
+	export CDEVDDL=$SLSBASE/sls/config/ddl/SLS.cdl
+	${SLSBASE}/bin/rsvcServer &
+	${SLSBASE}/bin/cdevGateway &
+fi
+SV
