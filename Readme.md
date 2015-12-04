@@ -32,3 +32,6 @@ To build SynopView and to create an all in one Jar use:
 ```
 
 Afterwards the build library is available in `build/libs`.
+
+# Notes
+* Eventually Andreas Streun knows more about the generation of the required input files.
