@@ -62,7 +62,7 @@ class SV extends java.awt.Frame implements SVControlSystem {
 	java.awt.MenuItem Separator1 = new java.awt.MenuItem("-");
 	java.awt.CheckboxMenuItem autoCenterCheckBox = new java.awt.CheckboxMenuItem("auto Center");
 	java.awt.MenuItem Separator3 = new java.awt.MenuItem("-");
-	java.awt.CheckboxMenuItem debugCheckBox = new java.awt.CheckboxMenuItem("Debug Info");
+//	java.awt.CheckboxMenuItem debugCheckBox = new java.awt.CheckboxMenuItem("Debug Info");
 	java.awt.CheckboxMenuItem cdevGetCheckBox = new java.awt.CheckboxMenuItem("single cdevGet calls");
 	// }}
 
@@ -92,8 +92,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 				buttonsCheckBox_ItemStateChanged(event);
 			else if (object == autoCenterCheckBox)
 				autoCenterCheckBox_ItemStateChanged(event);
-			else if (object == debugCheckBox)
-				debugCheckBox_ItemStateChanged(event);
 			else if (object == cdevGetCheckBox)
 				cdevGetCheckBox_ItemStateChanged(event);
 		}
@@ -136,9 +134,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 		autoCenterCheckBox.setState(false);
 		viewMenu.add(autoCenterCheckBox);
 		viewMenu.add(Separator3);
-		debugCheckBox.setLabel("Debug Info");
-		debugCheckBox.setState(false);
-		viewMenu.add(debugCheckBox);
 		cdevGetCheckBox.setLabel("single cdevGet calls");
 		cdevGetCheckBox.setState(false);
 		viewMenu.add(cdevGetCheckBox);
@@ -155,7 +150,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 		treeCheckBox.addItemListener(lSymItem);
 		buttonsCheckBox.addItemListener(lSymItem);
 		autoCenterCheckBox.addItemListener(lSymItem);
-		debugCheckBox.addItemListener(lSymItem);
 		cdevGetCheckBox.addItemListener(lSymItem);
 		// }}
 
@@ -550,15 +544,7 @@ class SV extends java.awt.Frame implements SVControlSystem {
 		setConnectButton();
 	}
 
-	/**
-	 * setDebugMode to set debug mode in cdevSystem (JavaCdev) to display or
-	 * hide additional cdev status info
-	 *
-	 * Interface SVControlSystem
-	 *
-	 */
-	public void sc_setDebugMode(boolean bDebug) {
-	}
+
 
 	/**
 	 * setCdevMode to set Cdev mode to send No Block or the get all properties
@@ -597,14 +583,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 	// here the SVControlSystem Interface method's ends ====================
 	// ======================================================================
 
-	void debugCheckBox_ItemStateChanged(java.awt.event.ItemEvent event) {
-		// return the status of the debug checkbox to the SV class (via SV
-		// ControlSystem)
-		sc_setDebugMode(event.getStateChange() == ItemEvent.SELECTED);
-		// and clear the TextArea......
-		sc_setTextArea("");
-
-	}
 
 	void cdevGetCheckBox_ItemStateChanged(java.awt.event.ItemEvent event) {
 		// return the status of the cdevMode checkbox to the SV class (via SV

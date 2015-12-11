@@ -27,7 +27,6 @@ public interface SVControlSystem {
   public void sc_setTextArea(String sInfo);
   public void sc_setTextAreaLabel(String sInfo);
   public void sc_appendTextArea(String sInfo);
-  public void sc_setDebugMode(boolean bDebug);
   public void sc_setCdevMode(boolean bDebug);
   public void sc_setInterrestGroup(String str);
   public void sc_addInterrestChoice(String str);
