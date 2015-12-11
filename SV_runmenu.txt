@@ -1,2 +1,0 @@
-# menuItem	exec_statement	short_cut
-# shortcut currently not upported!!!

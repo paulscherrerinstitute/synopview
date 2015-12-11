@@ -64,7 +64,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 	java.awt.MenuItem Separator3 = new java.awt.MenuItem("-");
 	java.awt.CheckboxMenuItem debugCheckBox = new java.awt.CheckboxMenuItem("Debug Info");
 	java.awt.CheckboxMenuItem cdevGetCheckBox = new java.awt.CheckboxMenuItem("single cdevGet calls");
-	java.awt.Menu executeMenu = new java.awt.Menu();
 	// }}
 
 	class SymWindow extends java.awt.event.WindowAdapter {
@@ -144,8 +143,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 		cdevGetCheckBox.setState(false);
 		viewMenu.add(cdevGetCheckBox);
 		mainMenuBar.add(viewMenu);
-		executeMenu.setLabel("Execute");
-		mainMenuBar.add(executeMenu);
 		setMenuBar(mainMenuBar);
 		// }}
 
@@ -170,11 +167,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 		this.add("Center", synoptic.getDrawingSurface());
 		this.add("South", synoptic.getStatusBar());
 		this.add("East", synoptic.getResultPanel());
-
-		// this code is added manualy to be abled to add menu items to the
-		// Execute menu from the SV_runmenu.txt
-		DefineMenu execMenu = new DefineMenu();
-		execMenu.addRunMenu(executeMenu);
 
 		// connect to cdevGatewayServer (cdevGateway)
 		// this is used to get the values of the selected device properties...
