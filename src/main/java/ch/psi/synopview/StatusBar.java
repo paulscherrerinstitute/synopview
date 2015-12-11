@@ -1,21 +1,25 @@
 package ch.psi.synopview;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.Panel;
+import java.awt.TextField;
 
-public class StatusBar extends java.awt.Panel {
+public class StatusBar extends Panel {
 
 	private static final long serialVersionUID = 1L;
 	
-	java.awt.TextField statusText = new java.awt.TextField();
+	private TextField statusText;
 	
 	public StatusBar() {
+		statusText = new TextField();
+		statusText.setEditable(false);
+		statusText.setBounds(0,0,478,30);
+        statusText.setFont(new Font("Dialog", Font.BOLD, 12));
+		
 		setLayout(new BorderLayout(0,0));
 		setSize(645,30);
-		statusText.setEditable(false);
-		add("Center",statusText);
-		statusText.setBounds(0,0,478,30);
-
-        statusText.setFont(new Font("Dialog", Font.BOLD, 12));
+		add("Center", statusText);
 	}
 
 	public void setText(String str) {

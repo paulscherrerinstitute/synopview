@@ -65,8 +65,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 	java.awt.CheckboxMenuItem debugCheckBox = new java.awt.CheckboxMenuItem("Debug Info");
 	java.awt.CheckboxMenuItem cdevGetCheckBox = new java.awt.CheckboxMenuItem("single cdevGet calls");
 	java.awt.Menu executeMenu = new java.awt.Menu();
-	java.awt.Menu helpMenu = new java.awt.Menu();
-	java.awt.MenuItem aboutMenuItem = new java.awt.MenuItem();
 	// }}
 
 	class SymWindow extends java.awt.event.WindowAdapter {
@@ -80,10 +78,9 @@ class SV extends java.awt.Frame implements SVControlSystem {
 	class SymAction implements java.awt.event.ActionListener {
 		public void actionPerformed(java.awt.event.ActionEvent event) {
 			Object object = event.getSource();
-			if (object == aboutMenuItem)
-				aboutMenuItem_ActionPerformed(event);
-			else if (object == exitMenuItem)
+			if (object == exitMenuItem){
 				exitMenuItem_ActionPerformed(event);
+			}
 		}
 	}
 
@@ -149,10 +146,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 		mainMenuBar.add(viewMenu);
 		executeMenu.setLabel("Execute");
 		mainMenuBar.add(executeMenu);
-		helpMenu.setLabel("Help");
-		helpMenu.add(aboutMenuItem);
-		aboutMenuItem.setLabel("About...");
-		mainMenuBar.add(helpMenu);
 		setMenuBar(mainMenuBar);
 		// }}
 
@@ -161,7 +154,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 		this.addWindowListener(aSymWindow);
 		SymAction lSymAction = new SymAction();
 		exitMenuItem.addActionListener(lSymAction);
-		aboutMenuItem.addActionListener(lSymAction);
 		SymItem lSymItem = new SymItem();
 		treeCheckBox.addItemListener(lSymItem);
 		buttonsCheckBox.addItemListener(lSymItem);
@@ -211,18 +203,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 		if (cdevSystem.readInterrestFile("SV_interest.txt") != true) {
 			logger.warning("Unable to read interest file");
 			SV_exit();
-		}
-	}
-
-	void aboutMenuItem_ActionPerformed(java.awt.event.ActionEvent event) {
-		aboutMenuItem_ActionPerformed_Interaction1(event);
-	}
-
-	void aboutMenuItem_ActionPerformed_Interaction1(java.awt.event.ActionEvent event) {
-		try {
-			// AboutDialog Create and show as modal
-			(new AboutDialog(this, true)).setVisible(true);
-		} catch (Exception e) {
 		}
 	}
 
