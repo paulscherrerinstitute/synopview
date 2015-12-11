@@ -1,31 +1,19 @@
 package ch.psi.synopview.svp.parser;
 
 import java.io.*;
-import java.net.*;
 import java.util.*;
 
 import ch.psi.synopview.svp.devices.DevicesData;
 import ch.psi.synopview.svp.devices.GroupData;
 import ch.psi.synopview.svp.devices.InterrestsData;
 import ch.psi.synopview.svp.devices.MachinesData;
-import ch.psi.synopview.svp.devices.MenuData;
 import ch.psi.synopview.svp.devices.SystemsData;
 import ch.psi.synopview.svp.visual.DeviceColorModel;
 import java.awt.Color;
 
-/**
- * Insert the type's description here.
- * Creation date: (12/7/99 19:10:17)
- * @author: Matej Sekoranja
- */
 public class SVParser {
 	static final char quoteChar = '"';
-/**
- * Gets StreamTokenizer for given file
- * tries to get the path from the run env var SV_DIR
- * @return java.io.StreamTokenizer
- * @param fileName java.lang.String
- */
+
 public static StreamTokenizer getStreamTokenizer(String fileName) {
 
 	FileInputStream fi = null;
@@ -58,10 +46,7 @@ public static StreamTokenizer getStreamTokenizer(String fileName) {
 
 	return tokenizer;
 }
-/**
- * Initializes tokenizer
- * @param st java.io.StreamTokenizer
- */
+
 public static void initializeTokenizer(StreamTokenizer tokenizer) {
 	tokenizer.whitespaceChars(0, 32);
 	tokenizer.wordChars(33, 255);			// reset
@@ -69,13 +54,7 @@ public static void initializeTokenizer(StreamTokenizer tokenizer) {
 	tokenizer.commentChar('#');
 	tokenizer.quoteChar(quoteChar);
 }
-/**
- * Parses SV database file
- * Creation date: (12/7/99 19:12:14)
- * @return svp.devices.DevicesData
- * @param fileName java.lang.String
- * @param colorModel svp.visual.DeviceColorModel
- */
+
 public static DevicesData parse(String fileName, ch.psi.synopview.svp.visual.DeviceColorModel colorModel) {
 	DevicesData data = null;
 	
@@ -87,13 +66,7 @@ public static DevicesData parse(String fileName, ch.psi.synopview.svp.visual.Dev
 	
 	return data;
 }
-/**
- * Parses SV color file
- * Creation date: (3.12.1999 21:00:40)
- * @return svp.visual.DeviceColorModel
- * @param fileName java.lang.String
- */
- 
+
 public static ch.psi.synopview.svp.visual.DeviceColorModel parseColors(String fileName) {
 	DeviceColorModel colorModel = null;
 	
@@ -105,12 +78,7 @@ public static ch.psi.synopview.svp.visual.DeviceColorModel parseColors(String fi
 	
 	return colorModel;
 }
-/**
- * Parses SV database file
- * Creation date: (12/7/99 19:12:14)
- * @return java.awt.Hashtable
- * @param fileName java.lang.String
- */
+
 public static Hashtable parseGroups(String fileName) {
 	Hashtable groups = null;
 	
@@ -122,12 +90,7 @@ public static Hashtable parseGroups(String fileName) {
 	
 	return groups;
 }
-/**
- * Parses SV machines file
- * Creation date: (3/12/99 19:12:14)
- * @return svp.device.MachinesData
- * @param fileName java.lang.String
- */
+
 public static MachinesData parseMachines(String fileName) {
 	MachinesData machines = null;
 	
@@ -139,28 +102,7 @@ public static MachinesData parseMachines(String fileName) {
 	
 	return machines;
 }
-/**
- * Insert the method's description here.
- * Creation date: (12/7/99 19:12:14)
- * @return java.awt,Vector
- * @param fileName java.lang.String
- */
-public static Vector parseMenus(String fileName) {
-	Vector menus = null;
-	
-	StreamTokenizer tokenizer = getStreamTokenizer(fileName);
-	if (tokenizer!=null) {
-		menus = new Vector();
-		processMenuData(menus, tokenizer, fileName);
-	}	
-	return menus;
-}
-/**
- * Parses SV systems file
- * Creation date: (3/12/99 19:22:14)
- * @return svp.device.SystemsData
- * @param fileName java.lang.String
- */
+
 public static SystemsData parseSystems(String fileName) {
 	SystemsData systems = null;
 	
@@ -173,13 +115,6 @@ public static SystemsData parseSystems(String fileName) {
 	return systems;
 }
 
-/**
- * Insert the method's description here.
- * Creation date: (3.12.1999 21:04:11)
- * @param colorModel svp.visual.DeviceColorModel
- * @param tokenizer java.io.StreamTokenizer
- * @param fileName java.lang.String
- */
 public static void processColorData(DeviceColorModel colorModel, StreamTokenizer tokenizer, String fileName) {
 
 	int id, red, green, blue;
@@ -226,14 +161,6 @@ public static Hashtable parseInterrests(String fileName) {
 	return interrests;
 }
 
-/**
- * Insert the method's description here.
- * Creation date: (12/7/99 19:19:42)
- * @param data svp.devices.DevicesData
- * @param tokenizer java.io.StreamTokenizer
- * @param fileName java.lang.String
- * @param colorModel svp.visual.DeviceColorModel
- */
 public static void processData(DevicesData data, ch.psi.synopview.svp.visual.DeviceColorModel colorModel, StreamTokenizer tokenizer, String fileName) {
 
 	final int maxCoords = 30;
@@ -311,13 +238,7 @@ public static void processData(DevicesData data, ch.psi.synopview.svp.visual.Dev
 		System.out.println("       " + exc);
 	}
 }
-/**
- * Insert the method's description here.
- * Creation date: (12/7/99 19:19:42)
- * @param groups java.util.Hashtable
- * @param tokenizer java.io.StreamTokenizer
- * @param fileName java.lang.String
- */
+
 public static void processGroupData(Hashtable groups, StreamTokenizer tokenizer, String fileName) {
 
 	String name, parent;
@@ -344,13 +265,7 @@ public static void processGroupData(Hashtable groups, StreamTokenizer tokenizer,
 		System.out.println("      " + exc);
 	}
 }
-/**
- * Insert the method's description here.
- * Creation date: (3.12.1999 22:26:52)
- * @param machines svp.devices.MachinesData
- * @param tokenizer java.io.StreamTokenizer
- * @param fileName java.lang.String
- */
+
 public static void processMachineData(MachinesData machines, StreamTokenizer tokenizer, String fileName) {
 
 	String name;
@@ -376,58 +291,8 @@ public static void processMachineData(MachinesData machines, StreamTokenizer tok
 		System.out.println("      " + exc);
 	}
 }
-public static void processMenuData(Vector menus, StreamTokenizer tokenizer, String fileName) {
-  String menuItem, menuExec, menuShortCut;
 
-  try {
-	while (tokenizer.nextToken() != tokenizer.TT_EOF)
-	  if (tokenizer.ttype == tokenizer.TT_WORD) {
-		// read menuItem
-		menuItem = tokenizer.sval;
-		
-//        if (menuItem.equalsIgnoreCase("null")) {
-//          System.out.println("Info:    file " + fileName + " at line " + tokenizer.lineno() + " is a seperator");
-//          // menuItem = null is a seperator menuItem
-//          tokenizer.nextToken();
-//          menuExec = null;
-//          tokenizer.nextToken();
-//          menuShortCut = null;
-//        } else { 
-		  // read menuExec (including parametess, this field mus be in "")
-		    tokenizer.nextToken();
-		  if (tokenizer.ttype==quoteChar) 
-			menuExec=tokenizer.sval;
-		  else {
-			menuExec = "";
-			System.out.println("Warning: parsing " + fileName + " at line " + tokenizer.lineno() + ": no program defined to execute!");
-		  }
-		  if (menuExec.trim().equals("")) menuExec = null;
 
-		  // read menuShortCut
-		  tokenizer.nextToken();
-		  if (tokenizer.ttype==tokenizer.TT_WORD) 
-			menuShortCut=tokenizer.sval;
-		  else {
-			menuShortCut = null;
-		  }
-//        }
-		if (menuExec != null) 
-		  menus.addElement(new MenuData(menuItem, menuExec, menuShortCut));
-	  }
-  } catch (Exception exc) {
-	System.out.println("\nError:   while parsing " + fileName + "...");
-	System.out.println("      " + exc);
-  }
-
-}
-
-/**
- * Insert the method's description here.
- * Creation date: (3.12.1999 22:26:52)
- * @param systems svp.devices.SystemsData
- * @param tokenizer java.io.StreamTokenizer
- * @param fileName java.lang.String
- */
 public static void processSystemData(SystemsData systems, StreamTokenizer tokenizer, String fileName) {
 
 	String name;
