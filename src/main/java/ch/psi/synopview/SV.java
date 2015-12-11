@@ -246,7 +246,7 @@ class SV extends java.awt.Frame implements SVControlSystem {
 	 * This event is executed from the DrawingSurface - MouseClicked...
 	 */
 	public void sc_startPanel(String commandLine) {
-		// System.out.println("Info: startPanel(\""+commandLine+"\")");
+		logger.info("Start panel - "+commandLine);
 		ExecProgram.run(commandLine);
 	}
 
