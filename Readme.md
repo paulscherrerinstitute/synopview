@@ -9,7 +9,7 @@ Right now it is not fully functional as it depends on cdev which is not supporte
 To run SynopView use:
 
 ```bash
-java -jar synopview.jar SV 1234
+java -jar synopview.jar
 ```							 
 
 # Known Problems
