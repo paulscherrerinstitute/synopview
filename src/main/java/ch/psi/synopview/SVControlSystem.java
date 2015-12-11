@@ -25,11 +25,10 @@ public interface SVControlSystem {
   public void sc_appendTextArea(String sInfo);
 
   // methods declared in SelectDialog
-  public void sc_enableSelectButton(boolean set);
+//  public void sc_enableSelectButton(boolean set);
   public void sc_selectDevice(int machine, int system, boolean visible);  
   
   // methods declared in SV
-  public void sc_select();  
   public boolean sc_getAutoCenter ();  
   public void sc_startPanel(String commandLine);  
 }

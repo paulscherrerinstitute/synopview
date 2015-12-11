@@ -1,7 +1,6 @@
 package ch.psi.synopview;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Point;
@@ -31,47 +30,22 @@ class SV extends java.awt.Frame implements SVControlSystem {
 	private static final Logger logger = Logger.getLogger(SV.class.getName());
 
 	private static final long serialVersionUID = 1L;
-	
-	// define some Strings for the ResultPanel Buttons
-	static String RECONNECT_STRING = "ReConnect";
-	static String DISCONNECT_STRING = "DisConnect";
-	static String PLEASE_WAIT = "Please wait...";
 
 	// boolean to indicate autoCenter is on or off
 	boolean bAutoCenter = false;
 
-	// Synoptic is the ...
 	Synoptic synoptic;
 
 	// Used for addNotify check.
 	boolean fComponentsAdjusted = false;
 
 	java.awt.MenuBar mainMenuBar = new java.awt.MenuBar();
-//	java.awt.Menu fileMenu = new java.awt.Menu();
 	java.awt.MenuItem Separator2 = new java.awt.MenuItem("-");
-//	java.awt.MenuItem exitMenuItem = new java.awt.MenuItem();
 	java.awt.Menu viewMenu = new java.awt.Menu();
 	java.awt.CheckboxMenuItem treeCheckBox = new java.awt.CheckboxMenuItem("Tree");
 	java.awt.CheckboxMenuItem buttonsCheckBox = new java.awt.CheckboxMenuItem("Buttons");
 	java.awt.MenuItem Separator1 = new java.awt.MenuItem("-");
 	java.awt.CheckboxMenuItem autoCenterCheckBox = new java.awt.CheckboxMenuItem();
-
-//	class SymWindow extends java.awt.event.WindowAdapter {
-//		public void windowClosing(java.awt.event.WindowEvent event) {
-//			Object object = event.getSource();
-//			if (object == SV.this)
-//				System.exit(0);
-//		}
-//	}
-
-//	class SymAction implements java.awt.event.ActionListener {
-//		public void actionPerformed(java.awt.event.ActionEvent event) {
-//			Object object = event.getSource();
-//			if (object == exitMenuItem){
-//				exitMenuItem_ActionPerformed(event);
-//			}
-//		}
-//	}
 
 	class SymItem implements java.awt.event.ItemListener {
 		public void itemStateChanged(java.awt.event.ItemEvent event) {
@@ -128,18 +102,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 		this.add("South", synoptic.getStatusBar());
 		this.add("East", synoptic.getResultPanel());
 
-		// read System and Machine Files for the Select Dialog
-		if (synoptic.readMachineFile("SV_machine.txt") != true) {
-			logger.warning("Unable to read machine file");
-			System.exit(1);
-		}
-		if (synoptic.readSystemFile("SV_system.txt") != true) {
-			logger.warning("Unable to read system file");
-			System.exit(1);
-		}
-		// when the Machine and System files are read correct,
-		// create the Elements in the SelectDialog
-		synoptic.createSelectElements();
 	}
 
 	public void addNotify() {
@@ -181,16 +143,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 		this.validate();
 	}
 
-//	void exitMenuItem_ActionPerformed(java.awt.event.ActionEvent event) {
-//		// to do: code goes here.
-//
-//		exitMenuItem_ActionPerformed_Interaction1(event);
-//	}
-
-//	void exitMenuItem_ActionPerformed_Interaction1(java.awt.event.ActionEvent event) {
-//		System.exit(0);
-//	}
-
 	static public void main(String args[]) {
 		try {
 			SV synop_view = new SV();
@@ -225,15 +177,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 		super.setVisible(b);
 	}
 
-//	void SV_WindowClosing(java.awt.event.WindowEvent event) {
-//		// to do: code goes here.
-//
-//		SV_WindowClosing_Interaction1(event);
-//	}
-
-//	void SV_WindowClosing_Interaction1(java.awt.event.WindowEvent event) {
-//		System.exit(0);
-//	}
 
 	/*
 	 ** menu view tree ItemStateChenged display or hide the treeContral panel
@@ -260,32 +203,12 @@ class SV extends java.awt.Frame implements SVControlSystem {
 		return bAutoCenter;
 	}
 
-	public void sc_enableSelectButton(boolean set) {
-		synoptic.getResultPanel().selectButton.setEnabled(set);
-	}
-
 	public void sc_hilitedDevice(String deviceName) {
 		synoptic.getStatusBar().setText(deviceName);
 	}
 
 	public void sc_previousView() {
 		synoptic.getDrawingSurface().sc_previousView();
-	}
-
-	public void sc_select() {
-		try {
-			// show the Select Dialog...
-			synoptic.getSelectDialog().setVisible(true);
-
-			// when the select dialog is shown,
-			// the "select" button in the ResultPanel will be disabled
-			synoptic.getResultPanel().selectButton.setEnabled(false);
-
-			synoptic.getSelectDialog().setControlSystem(this);
-
-		} catch (Exception e) {
-			System.out.println("Error:   creting Select Dialog..." + e);
-		}
 	}
 
 	public void sc_selectDevice(int machine, int system, boolean visible) {

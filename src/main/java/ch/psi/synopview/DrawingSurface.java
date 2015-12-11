@@ -42,12 +42,6 @@ public class DrawingSurface extends Canvas implements MouseListener, MouseMotion
 	// list of all devices
 	DevicesData data;
 
-	// machine data
-	MachinesData machines;
-
-	// system data
-///	SystemsData systems;
-
 	// previous cursor
 	Cursor previousCursor = null;
 

@@ -10,10 +10,7 @@ class Synoptic {
 	TreeControl    treeControl;
 	StatusBar      statusbar;
 	ResultPanel    resultpanel;
-    SelectDialog   selectDialog = null;     // Select Dialog to choose devices...
-/**
- * Synoptic constructor comment.
- */
+
 public Synoptic(SVControlSystem sc) {
 	drawingSurface = new DrawingSurface();
 	drawingSurface.setControlSystem(sc);
@@ -25,36 +22,12 @@ public Synoptic(SVControlSystem sc) {
 	
 	resultpanel   = new ResultPanel();
     resultpanel.setSVControlSystem(sc);
-	
-	// SelectDialog Create and show as NOT modal			
-	selectDialog = new SelectDialog((java.awt.Frame) sc);
 }
 
 public ResultPanel getResultPanel() {
 	return resultpanel;
 }
 
-public SelectDialog getSelectDialog() {
-	return selectDialog;
-}
-
-public boolean readSystemFile(String fileName) {
-    return selectDialog.readSystemFile(fileName);
-}
-
-public boolean readMachineFile(String fileName) {
-  return selectDialog.readMachineFile(fileName);
-}
-
-public void createSelectElements() {
-  selectDialog.createSelectElements();
-}
-
-/**
- * Insert the method's description here.
- * Creation date: (4/9/99 15:22:36)
- * @return DrawingSurface
- */
 public DrawingSurface getDrawingSurface() {
 	return drawingSurface;
 }

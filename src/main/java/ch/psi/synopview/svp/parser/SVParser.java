@@ -5,8 +5,6 @@ import java.util.*;
 
 import ch.psi.synopview.svp.devices.DevicesData;
 import ch.psi.synopview.svp.devices.GroupData;
-import ch.psi.synopview.svp.devices.MachinesData;
-import ch.psi.synopview.svp.devices.SystemsData;
 import ch.psi.synopview.svp.visual.DeviceColorModel;
 import java.awt.Color;
 
@@ -90,30 +88,6 @@ public class SVParser {
 		}
 
 		return groups;
-	}
-
-	public static MachinesData parseMachines(String fileName) {
-		MachinesData machines = null;
-
-		StreamTokenizer tokenizer = getStreamTokenizer(fileName);
-		if (tokenizer != null) {
-			machines = new MachinesData();
-			processMachineData(machines, tokenizer, fileName);
-		}
-
-		return machines;
-	}
-
-	public static SystemsData parseSystems(String fileName) {
-		SystemsData systems = null;
-
-		StreamTokenizer tokenizer = getStreamTokenizer(fileName);
-		if (tokenizer != null) {
-			systems = new SystemsData();
-			processSystemData(systems, tokenizer, fileName);
-		}
-
-		return systems;
 	}
 
 	public static void processColorData(DeviceColorModel colorModel, StreamTokenizer tokenizer, String fileName) {
@@ -277,62 +251,6 @@ public class SVParser {
 					// System.out.print ("@");
 				}
 			// System.out.println("end...");
-		} catch (Exception exc) {
-			System.out.println("\nError: while parsing: " + fileName + "...");
-			System.out.println("      " + exc);
-		}
-	}
-
-	public static void processMachineData(MachinesData machines, StreamTokenizer tokenizer, String fileName) {
-
-		String name;
-		int index;
-
-		try {
-			while (tokenizer.nextToken() != tokenizer.TT_EOF)
-				if (tokenizer.ttype == tokenizer.TT_NUMBER) {
-
-					// read machine
-					index = (int) tokenizer.nval;
-
-					// read machine name
-					tokenizer.nextToken();
-					if (tokenizer.ttype == tokenizer.TT_WORD)
-						name = tokenizer.sval;
-					else
-						throw (new SVParseException("Invalid data (machine_name - string expected)...", tokenizer, fileName));
-
-					machines.addMachine(index, name);
-				}
-
-		} catch (Exception exc) {
-			System.out.println("\nError: while parsing: " + fileName + "...");
-			System.out.println("      " + exc);
-		}
-	}
-
-	public static void processSystemData(SystemsData systems, StreamTokenizer tokenizer, String fileName) {
-
-		String name;
-		int index;
-
-		try {
-			while (tokenizer.nextToken() != tokenizer.TT_EOF)
-				if (tokenizer.ttype == tokenizer.TT_NUMBER) {
-
-					// read system
-					index = (int) tokenizer.nval;
-
-					// read system name
-					tokenizer.nextToken();
-					if (tokenizer.ttype == tokenizer.TT_WORD)
-						name = tokenizer.sval;
-					else
-						throw (new SVParseException("Invalid data (machine_name - string expected)...", tokenizer, fileName));
-
-					systems.addSystem(index, name);
-				}
-
 		} catch (Exception exc) {
 			System.out.println("\nError: while parsing: " + fileName + "...");
 			System.out.println("      " + exc);
