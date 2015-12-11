@@ -457,7 +457,7 @@ class SV extends java.awt.Frame implements SVControlSystem {
 	 */
 	public void sc_setDateandTime(String sDateandTime) {
 		// set the current date and time in the status bar
-		synoptic.getStatusBar().setTimeText(sDateandTime);
+//		synoptic.getStatusBar().setTimeText(sDateandTime);
 		// older...
 		// set the colored cdev status info and enable/disable the reconnect
 		// button...

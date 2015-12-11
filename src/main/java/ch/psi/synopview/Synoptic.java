@@ -25,9 +25,6 @@ public Synoptic(SVControlSystem sc) {
 	
 	resultpanel   = new ResultPanel();
     resultpanel.setSVControlSystem(sc);
-
-	Time mt         = new Time();
-	mt.setSVControlSystem(sc);
 	
 	// SelectDialog Create and show as NOT modal			
 	selectDialog = new SelectDialog((java.awt.Frame) sc);
