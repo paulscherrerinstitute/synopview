@@ -1,6 +1,5 @@
 package ch.psi.synopview;
 
-import ch.psi.synopview.svp.visual.tree.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;

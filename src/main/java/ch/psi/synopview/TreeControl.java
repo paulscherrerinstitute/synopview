@@ -3,13 +3,14 @@ package ch.psi.synopview;
 import java.awt.*;
 import java.util.*;
 import java.awt.event.*;
-import java.awt.image.ImageObserver;
 import ch.psi.synopview.svp.visual.tree.*;
 import ch.psi.synopview.svp.devices.Device;
 import ch.psi.synopview.svp.devices.*;
 
 public class TreeControl extends ScrPane implements KeyListener, MouseListener
 {
+	private static final long serialVersionUID = 1L;
+
 	DrawingSurface drawingSurface;
 	
 	FolderItem m_folder;
@@ -181,7 +182,7 @@ public void hiliteDevice(Device device) {
 public void keyPressed(KeyEvent e) {
 	int key = e.getKeyCode();
 	
-		Item next = null;
+//		Item next = null;
 		// up arrow previous item
 		if( key == KeyEvent.VK_UP ) {
 			prev( false );		

@@ -8,6 +8,8 @@ import java.awt.*;
 
 public class AboutDialog extends Dialog {
 
+	private static final long serialVersionUID = 1L;
+	
 	//{{DECLARE_CONTROLS
 	java.awt.Label filstLineLabel = new java.awt.Label();
 	java.awt.Button okButton = new java.awt.Button();

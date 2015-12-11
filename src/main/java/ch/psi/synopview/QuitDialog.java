@@ -5,10 +5,11 @@ package ch.psi.synopview;
  */
 
 import java.awt.*;
-import java.awt.event.*;
 
 public class QuitDialog extends Dialog
 {
+	private static final long serialVersionUID = 1L;
+	
 	// Used for addNotify check.
 	boolean fComponentsAdjusted = false;
 	// Invoking frame
@@ -161,7 +162,6 @@ public class QuitDialog extends Dialog
 	void yesButton_ActionPerformed_Interaction1(java.awt.event.ActionEvent event)
 	{
 		// Stop capturing characters into the log file and restore old setup.
-		SaveOutput.stop();
 		try {
 	        frame.setVisible(false);    // Hide the invoking frame
 	        frame.dispose();            // Free system resources
