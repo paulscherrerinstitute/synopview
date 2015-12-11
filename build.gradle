@@ -18,12 +18,8 @@ task fatJar(type: Jar) {
 
 repositories {
 	mavenCentral()
-   flatDir {
-       dirs 'lib'
-   }
 }
 
 dependencies {
-   	compile name: 'cdev'
    	testCompile group: 'junit', name: 'junit', version: '4.+'
 }
