@@ -518,7 +518,7 @@ public class SelectDialog extends java.awt.Dialog
 
 
     public boolean readSystemFile(String fileName) {
-	    systems = ch.psi.synopview.svp.parser.SVParser.parseSystems(fileName);
+	    systems = ch.psi.synopview.ConfigurationParser.parseSystems(fileName);
 	    if (systems==null) return false;
 
         asSystem = new String[systems.getSystemSize()];
@@ -528,7 +528,7 @@ public class SelectDialog extends java.awt.Dialog
     }
     
     public boolean readMachineFile(String fileName) {
-	    machines = ch.psi.synopview.svp.parser.SVParser.parseMachines(fileName);
+	    machines = ch.psi.synopview.ConfigurationParser.parseMachines(fileName);
 	    if (machines==null) return false;
 
         asMachine = new String[machines.getMachineSize()];

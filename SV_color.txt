@@ -1,5 +1,7 @@
 # this is the new SV_color.txt file
 
+			
+		# Empty
 # color_index color.red color.green color.blue
 # 0 255 255 255  background color, default white
 1   30  144  255

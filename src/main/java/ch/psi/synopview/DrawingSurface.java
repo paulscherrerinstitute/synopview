@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import ch.psi.synopview.svp.devices.Device;
-import ch.psi.synopview.svp.parser.SVParser;
 import ch.psi.synopview.svp.devices.*;
 import ch.psi.synopview.svp.visual.*;
 
@@ -237,7 +236,7 @@ public Device getDevice(String name) {
  */
 public Hashtable getHierarchy() {
 	if (hierarchy==null) {
-		Hashtable groups = ch.psi.synopview.svp.parser.SVParser.parseGroups("SV_groups.txt");
+		Hashtable groups = ch.psi.synopview.ConfigurationParser.parseGroups("SV_groups.txt");
 		if (groups==null) return null;
 
 		Device dev;
@@ -540,7 +539,7 @@ public void mouseReleased(java.awt.event.MouseEvent e) {
  public boolean open(String fileName) {
    	waitCursor();
 	hierarchy = null;
-  	data = SVParser.parse(fileName, view.getColorModel());
+  	data = ConfigurationParser.parse(fileName, view.getColorModel());
 	if (data==null) { 
 		removeMouseListeners();
 		restoreCursor();
@@ -678,7 +677,7 @@ public void sc_previousView() {
  * @param fileName java.lang.String
  */
 public boolean readColorFile(String fileName) {
-	DeviceColorModel colorModel = ch.psi.synopview.svp.parser.SVParser.parseColors(fileName);
+	DeviceColorModel colorModel = ch.psi.synopview.ConfigurationParser.parseColors(fileName);
 	if (colorModel!=null) {
 		view.setColorModel(colorModel);
 		return true;

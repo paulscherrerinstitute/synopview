@@ -1,7 +1,7 @@
 #device-name device-parent command machine-id system-id color-id [x-coordinate y-coordinate]* 
 # command is executed when doubleclicking device
 # there can be up to 30 x/y combinations  
- 
+
 ARIAL-GIRL-01G1 GIR-01G1 " "  5  5  11  14.206  41.727  14.323  42.275  18.724  41.340  18.608  40.792
 ARIAL-GIRL-01G2 GIR-01G2 " "  5  5  11  18.878  40.714  19.070  41.241  23.298  39.701  23.107  39.175
 ARIAL-GIRL-01G3 GIR-01G3 " "  5  5  11  23.866  38.788  24.179  39.253  27.910  36.736  27.597  36.272
