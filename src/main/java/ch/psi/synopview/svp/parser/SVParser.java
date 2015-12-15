@@ -23,13 +23,9 @@ public class SVParser {
 		try {
 			sPath = new String(java.lang.System.getProperty("SV_DIR"));
 		} catch (Exception e) {
-			// System.out.println("Warning: SV_DIR not defined when program
-			// started");
-			// if the env var SV_DIR is not defined at startup, this exception
-			// will be executed and so the file will be loaded from the current
-			// dir
 			sFileName = fileName;
 		}
+		
 		if (sPath != null) {
 			sFileName = new String(sPath + fileName);
 		}
@@ -158,7 +154,7 @@ public class SVParser {
 		}
 	}
 
-	public static void processData(DevicesData data, ch.psi.synopview.svp.visual.DeviceColorModel colorModel, StreamTokenizer tokenizer, String fileName) {
+	public static void processData(DevicesData data, DeviceColorModel colorModel, StreamTokenizer tokenizer, String fileName) {
 
 		final int maxCoords = 30;
 

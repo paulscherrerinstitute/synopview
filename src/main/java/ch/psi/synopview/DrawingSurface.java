@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import ch.psi.synopview.svp.devices.Device;
+import ch.psi.synopview.svp.parser.SVParser;
 import ch.psi.synopview.svp.devices.*;
 import ch.psi.synopview.svp.visual.*;
 
@@ -539,9 +540,8 @@ public void mouseReleased(java.awt.event.MouseEvent e) {
  public boolean open(String fileName) {
    	waitCursor();
 	hierarchy = null;
-  	data = ch.psi.synopview.svp.parser.SVParser.parse(fileName, view.getColorModel());
-	if (data==null) {
-	    
+  	data = SVParser.parse(fileName, view.getColorModel());
+	if (data==null) { 
 		removeMouseListeners();
 		restoreCursor();
 		return false;

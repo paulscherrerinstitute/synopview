@@ -1,7 +1,6 @@
 package ch.psi.synopview;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Point;
@@ -55,23 +54,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 	java.awt.CheckboxMenuItem buttonsCheckBox = new java.awt.CheckboxMenuItem("Buttons");
 	java.awt.MenuItem Separator1 = new java.awt.MenuItem("-");
 	java.awt.CheckboxMenuItem autoCenterCheckBox = new java.awt.CheckboxMenuItem();
-
-//	class SymWindow extends java.awt.event.WindowAdapter {
-//		public void windowClosing(java.awt.event.WindowEvent event) {
-//			Object object = event.getSource();
-//			if (object == SV.this)
-//				System.exit(0);
-//		}
-//	}
-
-//	class SymAction implements java.awt.event.ActionListener {
-//		public void actionPerformed(java.awt.event.ActionEvent event) {
-//			Object object = event.getSource();
-//			if (object == exitMenuItem){
-//				exitMenuItem_ActionPerformed(event);
-//			}
-//		}
-//	}
 
 	class SymItem implements java.awt.event.ItemListener {
 		public void itemStateChanged(java.awt.event.ItemEvent event) {
@@ -181,15 +163,6 @@ class SV extends java.awt.Frame implements SVControlSystem {
 		this.validate();
 	}
 
-//	void exitMenuItem_ActionPerformed(java.awt.event.ActionEvent event) {
-//		// to do: code goes here.
-//
-//		exitMenuItem_ActionPerformed_Interaction1(event);
-//	}
-
-//	void exitMenuItem_ActionPerformed_Interaction1(java.awt.event.ActionEvent event) {
-//		System.exit(0);
-//	}
 
 	static public void main(String args[]) {
 		try {
